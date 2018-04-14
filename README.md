@@ -17,8 +17,8 @@ A interface deve ser bastante semelhante a busca do [Submarino](https://www.subm
 http://agenciabluefoot.vtexcommercestable.com.br/buscaautocomplete/?productNameContains={{termo}}
 
 
-`Endpoint da API de seach full text:`
-http://agenciabluefoot.vtexcommercestable.com.br/api/catalog\_system/pub/products/search/{{termo}}?map=ft
+`Endpoint da API de search full text:`
+http://agenciabluefoot.vtexcommercestable.com.br/api/catalog_system/pub/products/search/{{termo}}?map=ft
 
 Documentação completa da API de busca: [https://documenter.getpostman.com/view/845/search-103/Hs43]
 
