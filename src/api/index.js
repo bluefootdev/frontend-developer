@@ -1,7 +1,8 @@
 import fetch from 'cross-fetch';
 
-const AUTOCOMPLETE_URL = 'http://agenciabluefoot.vtexcommercestable.com.br/buscaautocomplete/?productNameContains=';
-const FULL_TEXT_URL = 'http://agenciabluefoot.vtexcommercestable.com.br/api/catalog_system/pub/products/search/';
+const BASE_URL = 'http://agenciabluefoot.vtexcommercestable.com.br/';
+const AUTOCOMPLETE_URL = 'buscaautocomplete/?productNameContains=';
+const FULL_TEXT_URL = 'api/catalog_system/pub/products/search/';
 
 const options = {
   headers: {
@@ -12,9 +13,9 @@ const options = {
   mode: 'cors',
 };
 
-const request = async url => {
+const request = async (url) => {
   try {
-    const response = await fetch(url, options);
+    const response = await fetch(`${BASE_URL}${url}`, options);
     return response.json();
   } catch (e) {
     throw e;
