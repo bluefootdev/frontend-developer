@@ -23,7 +23,10 @@ const request = async (url) => {
 }
 
 export const searchProducts = async text => (
-  !text ? {} : request(`${AUTOCOMPLETE_URL}${text}`)
+  !text
+  ? {}
+  : request(`${AUTOCOMPLETE_URL}${text}`)
+      .then(response => response.itemsReturned)
 );
 
 export const searchFullTextProducts = async text => (
