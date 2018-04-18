@@ -32,3 +32,9 @@ export const searchProducts = async text => (
 export const searchFullTextProducts = async text => (
   !text ? {} : request(`${FULL_TEXT_URL}${text}?map=ft`)
 );
+
+export const goToProduct = ({link}) => {
+  if(link) {
+    window.location.open(link, '_blank');
+  }
+}
