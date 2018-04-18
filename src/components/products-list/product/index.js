@@ -1,3 +1,5 @@
+import React from 'react';
+
 import ProductThumb from "./product-thumb";
 import ProductInfos from "./product-info";
 
