@@ -8,6 +8,7 @@ import Header from '../header';
 const App = props => (
   <Provider store={store}>
     <Header />
+    <ProductsList />
   </Provider>
 );
 
