@@ -1,5 +1,5 @@
-import React from 'react';
-import {Provider} from 'react-redux';
+import React, { Fragment } from 'react';
+import { Provider } from 'react-redux';
 
 import store from '../../store';
 import Header from '../header';
@@ -8,8 +8,10 @@ import ProductsList from '../products-list';
 
 const App = props => (
   <Provider store={store}>
-    <Header />
-    <ProductsList />
+    <Fragment>
+      <Header />
+      <ProductsList />
+    </Fragment>
   </Provider>
 );
 
