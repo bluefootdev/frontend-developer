@@ -20,8 +20,8 @@ export const doRequest = async (dispatch, text, requestType) => {
     dispatch(invalidateSearch(false));
     dispatch(isFetching());
     const items = await requestType(text);
-    dispatch(isFetching(false))
-    return items
+    dispatch(isFetching(false));
+    return items;
   } catch(e) {
     console.error(e);
     dispatch(invalidateSearch(true));
