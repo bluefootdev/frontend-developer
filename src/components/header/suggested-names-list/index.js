@@ -1,4 +1,9 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+
+import { getProductsFullText } from '../../../store/reducers/products';
 
 const SuggestedNamesList = props => (
   <ul>
@@ -10,4 +15,8 @@ const SuggestedNamesList = props => (
   </ul>
 );
 
-export default SuggestedNamesList;
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({ getProductsFullText }, dispatch)
+)
+
+export default connect(mapDispatchToProps)(SuggestedNamesList);
