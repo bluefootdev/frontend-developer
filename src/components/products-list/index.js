@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Product from "./product";
 import { goToProduct } from '../../api';
@@ -21,4 +22,4 @@ const mapStateToProps = state => {
   return { products };
 }
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(ProductsList);
