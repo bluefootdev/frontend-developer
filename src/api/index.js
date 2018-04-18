@@ -1,30 +1,30 @@
 import fetch from 'cross-fetch';
 
 const AUTOCOMPLETE_URL = 'http://agenciabluefoot.vtexcommercestable.com.br/buscaautocomplete/?productNameContains=';
+const FULL_TEXT_URL = 'http://agenciabluefoot.vtexcommercestable.com.br/api/catalog_system/pub/products/search/';
 
-const headers = new Headers({
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Credentials': 'true'
-});
 const options = {
+  headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json'
+  },
   method: 'GET',
-  headers,
   mode: 'cors',
-  cache: 'default'
 };
 
-const searchProducts = async text => {
-  if(!text) {
-    return {};
-  }
+const request = async url => {
   try {
-    const response = await fetch(`${AUTOCOMPLETE_URL}${text}`, options);
+    const response = await fetch(url, options);
     return response.json();
-  } catch(e) {
+  } catch (e) {
     throw e;
   }
 }
 
-export {
-  searchProducts
-};
+export const searchProducts = async text => (
+  !text ? {} : request(`${AUTOCOMPLETE_URL}${text}`)
+);
+
+export const searchFullTextProducts = async text => (
+  !text ? {} : request(`${FULL_TEXT_URL}${text}?map=ft`)
+);
