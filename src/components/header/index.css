@@ -1,7 +1,11 @@
 .site-header {
-  height: 4em;
-  background-color: var(--primary-bg-color);
-  padding: .75em 0;
-  box-sizing: border-box;
-  box-shadow: var(--container-box-shadow);
+    height: 4em;
+    background-color: var(--primary-bg-color);
+    padding: .75em 0;
+    box-sizing: border-box;
+    box-shadow: var(--container-box-shadow);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
