@@ -29,12 +29,12 @@ export const doRequest = async (dispatch, text, requestType) => {
   }
 }
 
-export const getProductsAutocomplete = text => async dispatch => {
+export const getProductsAutocomplete = (text = '') => async dispatch => {
     const items = await doRequest(dispatch, text, searchProducts);
     dispatch(receivedSuggestedProducts(items));
 }
 
-export const getProductsFullText = text => async dispatch => {
+export const getProductsFullText = (text = '') => async dispatch => {
     const items = await doRequest(dispatch, text, searchFullTextProducts);
     dispatch(receivedProducts(items));
 }
