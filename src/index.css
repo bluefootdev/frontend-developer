@@ -1,5 +1,7 @@
+@import 'assets/css/colors.css';
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: var(--site-bg-color);
 }
