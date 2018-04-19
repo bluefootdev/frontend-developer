@@ -5,12 +5,12 @@ const AUTOCOMPLETE_URL = 'buscaautocomplete/?productNameContains=';
 const FULL_TEXT_URL = 'api/catalog_system/pub/products/search/';
 
 const options = {
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Content-Type': 'application/json'
-  },
+  // headers: {
+  //   'Access-Control-Allow-Origin': '*',
+  //   'Content-Type': 'application/json'
+  // },
   method: 'GET',
-  mode: 'cors',
+  // mode: 'cors',
 };
 
 const request = async (url) => {
@@ -24,13 +24,13 @@ const request = async (url) => {
 
 export const searchProducts = async text => (
   !text
-  ? {}
+  ? []
   : request(`${AUTOCOMPLETE_URL}${text}`)
       .then(response => response.itemsReturned)
 );
 
 export const searchFullTextProducts = async text => (
-  !text ? {} : request(`${FULL_TEXT_URL}${text}?map=ft`)
+  !text ? [] : request(`${FULL_TEXT_URL}${text}?map=ft`)
 );
 
 export const goToProduct = ({link}) => {
