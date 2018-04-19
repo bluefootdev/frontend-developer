@@ -3,4 +3,5 @@
   background-color: var(--primary-bg-color);
   padding: .75em 0;
   box-sizing: border-box;
+  box-shadow: var(--container-box-shadow);
 }
