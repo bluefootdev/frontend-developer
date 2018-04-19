@@ -7,6 +7,8 @@ import Autocomplete from './autocomplete';
 import SuggestedNamesList from './suggested-names-list';
 import SuggestedProductItems from './suggested-product-items';
 
+import './index.css';
+
 
 const Header = (props) => (
   <header className="site-header">
