@@ -30,7 +30,12 @@ export const searchProducts = async text => (
 );
 
 export const searchFullTextProducts = async text => (
-  !text ? [] : request(`${FULL_TEXT_URL}${text}?map=ft`)
+  !text
+  ? []
+  : request(`${FULL_TEXT_URL}${text}?map=ft`)
+      .then(response => (
+        response.reduce((products, product) => [...products, ...product.items], [])
+      ))
 );
 
 export const goToProduct = ({link}) => {
