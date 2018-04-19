@@ -1,13 +1,14 @@
 import React from 'react';
 
-const Autocomplete = props => {
-  return (<div className="autocomplete">
+const Autocomplete = ({text, onChange}) => (
+  <div className="autocomplete">
     <input
       type="text"
+      value={text}
       placeholder="O que você deseja buscar?"
-      onChange={(e) => props.onChange(e.target.value)}
+      onChange={(e) => onChange(e.target.value)}
     />
-  </div>)
-};
+  </div>
+);
 
 export default Autocomplete;
