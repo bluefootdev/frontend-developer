@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 
 import { searchIfNeeded } from '../../store/reducers/products';
 import Autocomplete from './autocomplete';
-import SuggestedNamesList from './suggested-names-list';
-import SuggestedProductItems from './suggested-product-items';
+import SuggestContainer from './suggest-container';
 
 import './index.css';
 
@@ -14,22 +13,21 @@ const Header = (props) => (
   <header className="site-header">
     <Autocomplete onChange={props.searchIfNeeded} text={props.searchText} />
     {
-      props.suggestedNames &&
-      <SuggestedNamesList suggestedNames={props.suggestedNames} />
-    }
-    {
-      props.suggestedProducts &&
-      <SuggestedProductItems products={props.suggestedProducts} />
+      props.showSuggestions &&
+      <SuggestContainer {...props} />
     }
   </header>
 );
 
 const mapStateToProps = state => {
   const {suggestedProducts, searchText} = state.product;
+  const suggestedNames = suggestedProducts.map(product => product.name);
+
   return {
-    suggestedNames: suggestedProducts.map(product => product.name),
+    suggestedNames,
     suggestedProducts: suggestedProducts.length ? suggestedProducts[0].items : [],
-    searchText
+    searchText,
+    showSuggestions: !!suggestedNames.length || !!suggestedProducts.length
   }
 }
 
