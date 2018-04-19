@@ -1,6 +1,6 @@
 .autocomplete {
     margin: auto;
-    width: 50%;
+    width: 80%;
     background-color: var(--white);
     padding: .25em .5em;
     position: relative;
@@ -30,4 +30,10 @@
 .autocomplete-textfield:focus,
 .autocomplete-textfield:active {
   outline: none;
+}
+
+@media screen and (min-width: 360px) {
+  .autocomplete {
+    width: 50%;
+  }
 }
