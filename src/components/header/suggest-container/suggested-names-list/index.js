@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 
-import { getProductsFullText } from '../../../store/reducers/products';
+import { getProductsFullText } from '../../../../store/reducers/products';
 
 const SuggestedNamesList = props => (
   <ul>
