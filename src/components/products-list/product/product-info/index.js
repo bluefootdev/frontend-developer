@@ -1,8 +1,8 @@
 import React from 'react';
 
-const ProductInfos = ({ name, sellers }) => (
+const ProductInfos = ({ nameComplete, sellers }) => (
   <div>
-    <h3>{name}</h3>
+    <h3>{nameComplete}</h3>
     <p>Min. Price: ${getMinPrice(sellers)}</p>
   </div>
 );
