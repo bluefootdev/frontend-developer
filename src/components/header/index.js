@@ -10,7 +10,7 @@ import SuggestedProductItems from './suggested-product-items';
 
 const Header = (props) => (
   <header className="site-header">
-    <Autocomplete onChange={props.searchIfNeeded} />
+    <Autocomplete onChange={props.searchIfNeeded} text={props.searchText} />
     {
       props.suggestedNames &&
       <SuggestedNamesList suggestedNames={props.suggestedNames} />
@@ -23,10 +23,11 @@ const Header = (props) => (
 );
 
 const mapStateToProps = state => {
-  const {suggestedProducts} = state.product;
+  const {suggestedProducts, searchText} = state.product;
   return {
     suggestedNames: suggestedProducts.map(product => product.name),
-    suggestedProducts: suggestedProducts.length ? suggestedProducts[0].items : []
+    suggestedProducts: suggestedProducts.length ? suggestedProducts[0].items : [],
+    searchText
   }
 }
 
