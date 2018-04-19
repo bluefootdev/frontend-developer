@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import Product from "./product";
 import { goToProduct } from '../../api';
 
+import './index.css';
+
 const ProductsList = (props) => (
-  <section>
+  <section className="products-list">
     {
       props.products.map(product => (
         <Product
