@@ -1,0 +1,6 @@
+.site-header {
+  height: 4em;
+  background-color: var(--primary-bg-color);
+  padding: .75em 0;
+  box-sizing: border-box;
+}
