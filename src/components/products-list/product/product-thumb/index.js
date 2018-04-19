@@ -1,8 +1,14 @@
 import React from 'react';
 
-const ProductThumb = ({imageUrl, alt}) => (
+const ProductThumb = ({images}) => (
   <figure className="product-image">
-    <img src={imageUrl} alt={alt} />
+    {
+      images.map(
+        ({imageUrl, imageLabel, imageId}) => (
+          <img src={imageUrl} alt={imageLabel} key={imageId} />
+        )
+      )
+    }
   </figure>
 );
 
