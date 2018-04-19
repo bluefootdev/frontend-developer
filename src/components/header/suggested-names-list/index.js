@@ -9,7 +9,7 @@ const SuggestedNamesList = props => (
   <ul>
     {
       props.suggestedNames.map(name => (
-        <li>{name}</li>
+        <li onClick={() => props.getProductsFullText(name)}>{name}</li>
       ))
     }
   </ul>
@@ -19,4 +19,4 @@ const mapDispatchToProps = dispatch => (
   bindActionCreators({ getProductsFullText }, dispatch)
 )
 
-export default connect(mapDispatchToProps)(SuggestedNamesList);
+export default connect(null, mapDispatchToProps)(SuggestedNamesList);
