@@ -2,6 +2,7 @@ import { searchProducts, searchFullTextProducts } from "../../api";
 
 // INITIAL_STATE
 export const INITIAL_STATE = {
+  searchText: '',
   isFetching: false,
   didInvalidate: false,
   suggestedProducts: [],
@@ -13,6 +14,7 @@ export const IS_FETCHING = 'IS_FETCHING';
 export const INVALIDATE_SEARCH = 'INVALIDATE_SEARCH';
 export const RECEIVED_SUGGESTED_PRODUCTS = 'RECEIVE_SUGGESTED_PRODUCTS';
 export const RECEIVED_PRODUCTS = 'RECEIVE_PRODUCTS';
+export const MODIFY_SEARCH_TEXT = 'MODIFY_SEARCH_TEXT';
 
 // ACTION CREATORS
 export const doRequest = async (dispatch, text, requestType) => {
@@ -37,15 +39,18 @@ export const getProductsAutocomplete = (text = '') => async dispatch => {
 export const getProductsFullText = (text = '') => async dispatch => {
     const items = await doRequest(dispatch, text, searchFullTextProducts);
     dispatch(receivedProducts(items));
+    dispatch(receivedSuggestedProducts([]));
+    dispatch(modifySearchText());
 }
 
 export const shouldSearch = state => !state.isFetching;
 
-export const searchIfNeeded = text => (dispatch, getState) => (
-  shouldSearch(getState())
+export const searchIfNeeded = text => (dispatch, getState) => {
+  dispatch(modifySearchText(text));
+  return shouldSearch(getState())
   ? dispatch(getProductsAutocomplete(text))
   : Promise.resolve()
-)
+}
 
 export const isFetching = (payload = true) => (
   {
@@ -75,6 +80,13 @@ export const receivedProducts = (products = []) => (
   }
 );
 
+export const modifySearchText = (text = '') => (
+  {
+    type: MODIFY_SEARCH_TEXT,
+    payload: text
+  }
+);
+
 // REDUCERS
 export const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -97,6 +109,11 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         products: action.payload
+      }
+    case MODIFY_SEARCH_TEXT:
+      return {
+        ...state,
+        searchText: action.payload
       }
     default:
       return state;
