@@ -1,0 +1,33 @@
+.autocomplete {
+    margin: auto;
+    width: 50%;
+    background-color: var(--white);
+    padding: .25em .5em;
+    position: relative;
+}
+
+.autocomplete:after {
+    content: '';
+    width: 2em;
+    height: 2em;
+    background-image: url('../../../assets/svg/search.svg');
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+    color: var(--primary-bg-color);
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.autocomplete-textfield {
+    width: 100%;
+    line-height: 2em;
+    border: 0;
+    background: inherit;
+}
+
+.autocomplete-textfield:focus,
+.autocomplete-textfield:active {
+  outline: none;
+}
