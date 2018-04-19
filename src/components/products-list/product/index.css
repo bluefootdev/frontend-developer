@@ -1,0 +1,58 @@
+@keyframes slider {
+    0% {
+        left: 0%;
+    }
+    20% {
+        left: 0%;
+    }
+    25% {
+        left: -250px;
+    }
+    45% {
+        left: -250px;
+    }
+    50% {
+        left: -500px;
+    }
+    70% {
+        left: -500px;
+    }
+    75% {
+        left: 0%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+
+.product {
+    margin: auto;
+    width: 250px;
+    height: 360px;
+    background-color: var(--white);
+    border: var(--container-border);
+    box-shadow: var(--container-box-shadow);
+    box-sizing: border-box;
+    font-size: .7em;
+    text-align: center;
+    margin-bottom: 1em;
+    overflow: hidden;
+}
+
+.product-image,
+.product-image img {
+    height: 250px;
+}
+
+.product-image {
+    overflow: hidden;
+    position: relative;
+    width: 750px;
+    margin: 0;
+    animation: 10s slider infinite;
+}
+
+.product-image img {
+    width: 250px;
+    float: left;
+}
