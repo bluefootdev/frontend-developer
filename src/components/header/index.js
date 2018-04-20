@@ -20,14 +20,14 @@ const Header = (props) => (
 );
 
 const mapStateToProps = state => {
-  const {suggestedProducts, searchText} = state.product;
+  const {suggestedProducts, searchText, showSuggestions} = state.product;
   const suggestedNames = suggestedProducts.map(product => product.name);
 
   return {
     suggestedNames,
     suggestedProducts: suggestedProducts.length ? suggestedProducts[0].items : [],
     searchText,
-    showSuggestions: !!suggestedNames.length || !!suggestedProducts.length
+    showSuggestions
   }
 }
 
