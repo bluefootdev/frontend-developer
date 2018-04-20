@@ -5,3 +5,7 @@ body {
     font-family: sans-serif;
     background-color: var(--site-bg-color);
 }
+
+.is-clickable {
+  cursor: pointer;
+}
