@@ -9,8 +9,9 @@ import './index.css';
 const ProductsList = (props) => (
   <section className="products-list">
     {
-      !!props.products.length && props.products.map(product => (
+      !!props.products.length && props.products.map((product, key) => (
         <Product
+          key={key}
           {...product}
           onClick={() => goToProduct(product)}
         />
