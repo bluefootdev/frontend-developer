@@ -7,10 +7,6 @@
     --container-border: 1px solid #c6e1f3;
     --container-border--hover: 1px solid #4a9eda;
     --container-box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+    --container-box-shadow--hover: 1px 1px 3px #4a9eda;
     --white: #fff;
-    --blue1: #c6e1f3;
-    --blue2: #a5cfed;
-    --blue4: #4a9eda;
-    --blue7: #005da0;
-    --blue8: #004d84;
 }
