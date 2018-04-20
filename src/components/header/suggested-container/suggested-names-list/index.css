@@ -11,3 +11,7 @@
     font-size: 1em;
     color: var(--text-color);
 }
+
+.suggested-names-item:hover {
+  color: var(--text-color--hover);
+}
