@@ -1,0 +1,15 @@
+.suggested-products {
+  height: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.suggested-product {
+  height: 100px;
+  text-align: center;
+}
+
+.suggested-product-image {
+  height: 100%;
+}
