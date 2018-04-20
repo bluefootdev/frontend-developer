@@ -13,7 +13,7 @@ const SuggestedProductItems = ({ products = [], getProductsFullText }) => {
         products.map(product => (
           <div
             key={product.itemId}
-            className="suggested-product"
+            className="suggested-product is-clickable"
             onClick={() => getProductsFullText(product.nameComplete)}
           >
             <img

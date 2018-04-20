@@ -8,7 +8,7 @@ import './index.css';
 
 
 const Product = (props) => (
-  <div className="product">
+  <div className="product is-clickable">
     <ProductThumb {...props} />
     <ProductInfos {...props} />
   </div>

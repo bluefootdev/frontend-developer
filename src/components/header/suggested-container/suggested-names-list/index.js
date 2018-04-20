@@ -6,15 +6,21 @@ import { getProductsFullText } from '../../../../store/reducers/products';
 import './index.css';
 
 
-const SuggestedNamesList = props => (
+const SuggestedNamesList = ({suggestedNames, getProductsFullText}) => (
   <ul className="suggested-names">
     {
-      props.suggestedNames.map(name => (
-        <li
-          className="suggested-names-item"
-          onClick={() => props.getProductsFullText(name)}
-        >
-        {name}
+      suggestedNames.map(name => (
+        <li className="suggested-names-item">
+          <a
+            className="is-clickable"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              getProductsFullText(name)
+            }}
+          >
+            {name}
+          </a>
         </li>
       ))
     }
