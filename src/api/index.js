@@ -24,22 +24,32 @@ const request = async (url) => {
 
 export const searchProducts = async text => (
   !text
-  ? []
-  : request(`${AUTOCOMPLETE_URL}${text}`)
+    ? []
+    : request(`${AUTOCOMPLETE_URL}${text}`)
       .then(response => response.itemsReturned)
 );
 
 export const searchFullTextProducts = async text => (
   !text
-  ? []
-  : request(`${FULL_TEXT_URL}${text}?map=ft`)
+    ? []
+    : request(`${FULL_TEXT_URL}${text}?map=ft`)
       .then(response => (
-        response.reduce((products, product) => [...products, ...product.items], [])
+        response.reduce((products, product) => [
+          ...products,
+          ...getProductItems(product)
+        ], [])
       ))
 );
 
-export const goToProduct = ({link}) => {
-  if(link) {
+const getProductItems = (product) => (
+  product.items.map(item => ({
+    ...item,
+    link: product.link
+  }))
+)
+
+export const goToProduct = ({ link }) => {
+  if (link) {
     window.location.open(link, '_blank');
   }
 }
