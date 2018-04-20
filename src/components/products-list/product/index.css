@@ -39,6 +39,11 @@
     overflow: hidden;
 }
 
+.product:hover {
+  border: var(--container-border--hover);
+  box-shadow: var(--container-box-shadow--hover);
+}
+
 .product-thumb,
 .product-thumb-image {
     height: 250px;
