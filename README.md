@@ -53,3 +53,6 @@ Para o outsideclick do container de sugestões usei o [onClickOutside](https://g
         │
         └─── reducers
 ```
+
+## Observações
+Não consegui resolver o problema do CORS então usei o Allow-Control-Allow-Origin: * do chrome
