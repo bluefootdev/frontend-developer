@@ -11,6 +11,7 @@
     margin: auto;
     display: flex;
     padding: 1em;
+    border-radius: 5px;
 }
 
 .suggested-container:after {
