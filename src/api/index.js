@@ -50,6 +50,6 @@ const getProductItems = (product) => (
 
 export const goToProduct = ({ link }) => {
   if (link) {
-    window.location.open(link, '_blank');
+    window.open(link, '_blank');
   }
 }
