@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { searchIfNeeded } from '../../store/reducers/products';
 import Autocomplete from './autocomplete';
-import SuggestContainer from './suggest-container';
+import SuggestedContainer from './suggested-container';
 
 import './index.css';
 
@@ -14,7 +14,7 @@ const Header = (props) => (
     <Autocomplete onChange={props.searchIfNeeded} text={props.searchText} />
     {
       props.showSuggestions &&
-      <SuggestContainer {...props} />
+      <SuggestedContainer {...props} />
     }
   </header>
 );
