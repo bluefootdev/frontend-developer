@@ -15,6 +15,7 @@ export const INVALIDATE_SEARCH = 'INVALIDATE_SEARCH';
 export const RECEIVED_SUGGESTED_PRODUCTS = 'RECEIVE_SUGGESTED_PRODUCTS';
 export const RECEIVED_PRODUCTS = 'RECEIVE_PRODUCTS';
 export const MODIFY_SEARCH_TEXT = 'MODIFY_SEARCH_TEXT';
+export const SHOW_SUGGESTIONS = 'SHOW_SUGGESTIONS';
 
 // ACTION CREATORS
 export const doRequest = async (dispatch, text, requestType) => {
@@ -33,12 +34,16 @@ export const doRequest = async (dispatch, text, requestType) => {
 
 export const getProductsAutocomplete = (text = '') => async dispatch => {
     const items = await doRequest(dispatch, text, searchProducts);
+    if(items.length) {
+      dispatch(showSuggestions());
+    }
     dispatch(receivedSuggestedProducts(items));
 }
 
 export const getProductsFullText = (text = '') => async dispatch => {
     const items = await doRequest(dispatch, text, searchFullTextProducts);
     dispatch(receivedProducts(items));
+    dispatch(showSuggestions(false));
     dispatch(receivedSuggestedProducts([]));
     dispatch(modifySearchText());
 }
@@ -87,6 +92,13 @@ export const modifySearchText = (text = '') => (
   }
 );
 
+export const showSuggestions = (show = true) => (
+  {
+    type: SHOW_SUGGESTIONS,
+    payload: show
+  }
+);
+
 // REDUCERS
 export const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -114,6 +126,11 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         searchText: action.payload
+      }
+    case SHOW_SUGGESTIONS:
+      return {
+        ...state,
+        showSuggestions: action.payload
       }
     default:
       return state;
