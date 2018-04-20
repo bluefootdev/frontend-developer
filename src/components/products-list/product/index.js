@@ -8,7 +8,10 @@ import './index.css';
 
 
 const Product = (props) => (
-  <div className="product is-clickable">
+  <div
+    className="product is-clickable"
+    onClick={() => goToProduct(props)}
+  >
     <ProductThumb {...props} />
     <ProductInfos {...props} />
   </div>
