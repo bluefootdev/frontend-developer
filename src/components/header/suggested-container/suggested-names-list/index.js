@@ -9,8 +9,8 @@ import './index.css';
 const SuggestedNamesList = ({suggestedNames, getProductsFullText}) => (
   <ul className="suggested-names">
     {
-      suggestedNames.map(name => (
-        <li className="suggested-names-item">
+      suggestedNames.map((name, key) => (
+        <li className="suggested-names-item" key={key}>
           <a
             className="is-clickable"
             onClick={(e) => {
