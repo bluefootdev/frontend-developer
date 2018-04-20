@@ -3,7 +3,7 @@
     border-color: var(--container-border);
     box-shadow: var(--container-box-shadow);
     position: fixed;
-    top: 6em;
+    top: 5em;
     left: 0;
     right: 0;
     width: 80%;
@@ -17,9 +17,9 @@
 .suggested-container:after {
     content: '';
     position: absolute;
-    width: 50px;
-    height: 50px;
-    top: -26px;
+    width: 25px;
+    height: 25px;
+    top: -14px;
     left: 0;
     right: 0;
     margin: auto;
