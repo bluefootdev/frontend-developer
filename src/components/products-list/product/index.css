@@ -37,15 +37,16 @@
     text-align: center;
     margin-bottom: 1em;
     overflow: hidden;
-    z-index: -1;
+    position: relative;
+    z-index: 2;
 }
 
-.product-image,
-.product-image img {
+.product-thumb,
+.product-thumb-image {
     height: 250px;
 }
 
-.product-image {
+.product-thumb {
     overflow: hidden;
     position: relative;
     width: 750px;
@@ -53,7 +54,7 @@
     animation: 10s slider infinite;
 }
 
-.product-image img {
+.product-thumb-image {
     width: 250px;
     float: left;
 }
