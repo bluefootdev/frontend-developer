@@ -1,9 +1,12 @@
 import React from 'react';
 
-const ProductInfos = ({ nameComplete, sellers }) => (
+const ProductInfos = ({ nameComplete, sellers = [] }) => (
   <div>
     <h3>{nameComplete}</h3>
-    <p>Min. Price: ${getMinPrice(sellers)}</p>
+    {
+      !!sellers.length &&
+      <p>Min. Price: ${getMinPrice(sellers)}</p>
+    }
   </div>
 );
 
