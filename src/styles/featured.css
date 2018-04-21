@@ -1,1 +1,1 @@
-.carroussel{position:relative}.carroussel .item{background:#EEE no-repeat center;background-size:auto;height:250px;left:0;position:absolute;top:0;width:100%}
+.slick-slider .slick-arrow{z-index:2}.slick-slider .slick-arrow.slick-prev{left:5px}.slick-slider .slick-arrow.slick-next{right:5px}.slick-slider .slick-list .item{background:#EEE no-repeat center;background-size:auto;display:block;height:250px;text-decoration:none;width:100%}
