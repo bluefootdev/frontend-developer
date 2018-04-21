@@ -1,0 +1,12 @@
+.carroussel {
+  position: relative;
+  .item {
+    background: #EEE no-repeat center;
+    background-size: auto;
+    height:250px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width:100%;
+  }
+}
