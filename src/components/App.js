@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom";
 import * as Routes from './routes';
-import Navbar from './Header/Navbar';
-import Featured from './Home/Featured';
+import Loading from './Shared/Loading';
+import Loadable from 'react-loadable';
+
+export const Navbar = Loadable({ loader: () => import("./Header/Navbar"), loading: Loading, });
 
 class App extends Component {
   render() {
@@ -11,11 +13,8 @@ class App extends Component {
         <Navbar/>
 
         <Switch>
-          <Route exact path='/' component={Routes.ShowList}/>
-          <Route exact path='/shows' component={Routes.ShowList}/>
-          <Route path='/shows/add' component={Routes.ShowAdd}/>
-          <Route path='/shows/:showId/edit' component={Routes.ShowEdit}/>
-          <Route path='/shows/:showId' component={Routes.ShowInfo}/>
+          <Route exact path='/' component={Routes.Home}/>
+          <Route path='/product/:showId/:slug' component={Routes.ProductDetail}/>
         </Switch>
       </div>
     );

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import Search from './Search';
 import '../../styles/navbar.css'
+import Loading from '../Shared/Loading';
+import Loadable from 'react-loadable';
+
+export const Search = Loadable({ loader: () => import("./Search"), loading: Loading, });
 
 export class Navbar extends Component {
   render() {
