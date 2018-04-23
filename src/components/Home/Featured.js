@@ -37,7 +37,7 @@ export function Featured(props) {
     dots: false,
     arrows: true,
     infinite: true,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2500,
     slidesToShow: 1,
     slidesToScroll: 1,
