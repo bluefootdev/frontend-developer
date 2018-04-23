@@ -14,10 +14,10 @@ export class Navbar extends Component {
             <div className={'col-md-3 col-sm-12'}>
               Awesome Logo
             </div>
-            <div className={'col-md-6 col-sm-12'}>
+            <div className={'col-md-8 col-sm-12'}>
               <Search />
             </div>
-            <div className={'col-md-3 right d-none d-md-block'}>
+            <div className={'col-md-1 right d-none d-md-block'}>
               <div className={'col'}>
                 <i className={'fas fa-shopping-cart'} />
               </div>
