@@ -119,7 +119,7 @@
     margin-right: -.35em;
     font-size: inherit;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0), #f1f1f1 50%);
-    fill: #666;
+    color: #666;
     pointer-events: none;
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
@@ -161,7 +161,7 @@
   .src-btn-ico {
     max-width: 60%;
     height: 60%;
-    fill: #00adef;
+    color: #00adef;
     vertical-align: middle;
   }
   .h_tooltip {
@@ -191,6 +191,7 @@
   .ac-lnk {
     .ac-term {
       font-size: inherit;
+      font-weight: 600;
     }
     .ac-dep {
       font-size: inherit;
@@ -279,7 +280,7 @@
   .as-rating {
     max-width: 5em;
     height: 1.5em;
-    fill: #ccc;
+    color: #ccc;
     display: none;
     position: absolute;
     z-index: 0;
@@ -291,7 +292,7 @@
     position: relative;
   }
   .as-rating-score {
-    fill: #ffcb05;
+    color: #ffcb05;
     z-index: 1;
   }
   &.src-filter .src-input {
@@ -307,7 +308,7 @@
       background: #f1f1f1;
     }
     .src-slc-arrow {
-      fill: #666;
+      color: #666;
       right: 3px;
       margin-right: 0;
       -webkit-transform: rotate(-90deg);
@@ -434,7 +435,7 @@
     }
     .src-slc-arrow {
       background: linear-gradient(180deg, rgba(255, 255, 255, 0), #f1f1f1 30%);
-      fill: #666;
+      color: #666;
       padding: 1em;
       top: 7px;
       right: -4px;
@@ -490,7 +491,7 @@
       padding-left: 1em;
       font-size: 1em;
     }
-    i {
+    .src-btn-ico {
       max-width: 50%;
       height: 50%;
     }
@@ -521,7 +522,7 @@
         height: 40px;
         background: #126ccd;
       }
-      i {
+      .src-btn-ico {
         max-width: 41.69%;
         height: 69%;
         margin: 2px 0 0 4px;
@@ -547,7 +548,7 @@
         background: 0 0;
         width: 100%;
       }
-      i {
+      .src-btn-ico {
         color: #fff;
       }
     }
