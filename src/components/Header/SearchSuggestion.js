@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import '../../styles/navbar.css';
 
 export function SearchSuggestion(props) {
+  console.log(props)
   return (
     <div className="src-suggestion">
       <div className="h_tooltip-title">Produtos sugeridos:</div>
@@ -42,11 +43,11 @@ export function SearchSuggestion(props) {
 }
 
 SearchSuggestion.defaultProps = {
-  results: [],
+  products: [],
 };
 
 SearchSuggestion.propTypes = {
-  results: PropTypes.array,
+  products: PropTypes.array,
 };
 
 export default SearchSuggestion;
