@@ -8,6 +8,14 @@ class ProductApi {
       return error;
     });
   }
+
+  static fullTextSearch(query) {
+    return fetch(`${this.API_URL}/catalog_system/pub/products/search/${query}?map=ft&_from=0&_to=2`).then(response => {
+      return response.json();
+    }).catch(error => {
+      return error;
+    });
+  }
 }
 
 export default ProductApi;
