@@ -27,7 +27,9 @@ function getBestPrice(product) {
       if(seller.commertialOffer && seller.commertialOffer.AvailableQuantity > 0) {
         lowerPrice.push(seller.commertialOffer.Price);
       }
+      return true;
     });
+    return true;
   });
   return (Math.max.apply(Math, lowerPrice)).toFixed(2);
 }

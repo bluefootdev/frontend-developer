@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as searchActions from '../../actions/searchActions';
 import '../../styles/search.css';
 
 export class Search extends Component {
@@ -13,13 +15,30 @@ export class Search extends Component {
     document.getElementById('box').classList.remove('active');
   };
 
+  fooBar = (event) => {
+    console.log(event.target.value.length);
+    this.props.sendMessage('teste');
+  };
+
   render() {
+    console.log(this.props)
     return (
       <div id="search" className={'search ready'}>
         <form className="src-form">
           <div className="src-input-wpr">
             <label id="h_search-label" htmlFor="h_search-input" className="src-label">Busca</label>
-            <input id="h_search-input" className="src-input" type="text" name="conteudo" placeholder="O que você deseja buscar?" onFocus={this.setBodyActive} onBlur={this.unsetBodyActive} autoComplete="off" tabIndex="2" />
+            <input
+              id="h_search-input"
+              className="src-input"
+              type="text"
+              name="conteudo"
+              placeholder="O que você deseja buscar?"
+              onFocus={this.setBodyActive}
+              onBlur={this.unsetBodyActive}
+              onChange={this.fooBar}
+              autoComplete="off"
+              tabIndex="2"
+            />
             <button type="submit" id="h_search-btn" className="src-btn" tabIndex="-1">
               <i className="fas fa-search" />
             </button>
@@ -62,7 +81,7 @@ export class Search extends Component {
               </li>
               <li className="ac-lst-it sz sz-7">
                 <a className="ac-lnk src-lnk" href="#">
-                  <span className="ac-term">gela</span>deira brastemp inverse 422 litros
+                  <span className="ac-term">gela</span>deira brastemp inverse 422 litros extra larga com muita coisa la dentro que vc vai ficar lotado de frase grande pra gente ver o que acontece!
                 </a>
               </li>
             </ul>
@@ -99,4 +118,18 @@ export class Search extends Component {
   }
 }
 
-export default Search;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    results: state.itemsReturned
+  }
+};
+
+const mapDispatchToProps = dispatch => ({
+  sendMessage: query => {
+    dispatch(searchActions.loadAutocompleteSearch(query));
+    //dispatch(navigateTo({ routeName: 'messagesList' }));
+  },
+});
+
+// export default Search;
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
