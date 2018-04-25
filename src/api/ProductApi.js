@@ -10,7 +10,7 @@ class ProductApi {
   }
 
   static fullTextSearch(query) {
-    return fetch(`${this.API_URL}/catalog_system/pub/products/search/${query}?map=ft&_from=0&_to=2`).then(response => {
+    return fetch(`${this.API_URL}/catalog_system/pub/products/search/${query}?map=ft&_from=0&_to=2&fq=P:[1 TO 99999]`).then(response => {
       return response.json();
     }).catch(error => {
       return error;
