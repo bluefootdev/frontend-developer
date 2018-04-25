@@ -9,10 +9,19 @@ export const SearchAutocomplete = Loadable({ loader: () => import("./SearchAutoc
 export const SearchSuggestion = Loadable({ loader: () => import("./SearchSuggestion"), loading: Loading, });
 
 export class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: '',
+    }
+  }
   setBodyActive = () => {
+    const search = this.props.search;
     document.getElementById('header-overlay').classList.add('active');
     document.getElementById('search').classList.add('active');
-    document.getElementById('box').classList.add('active');
+    if (search.results.length > 0 && search.products.length > 0) {
+      document.getElementById('box').classList.add('active');
+    }
   };
   unsetBodyActive = () => {
     document.getElementById('header-overlay').classList.remove('active');
@@ -23,8 +32,8 @@ export class Search extends Component {
   handleChange = (event) => {
     // like "TV"
     if(event.target.value.length > 1) {
-      this.props.sendQuery('teste');
-      //event.target.value
+      this.props.sendQuery(event.target.value);
+      this.setState({query: event.target.value})
     }
   };
 
@@ -54,14 +63,14 @@ export class Search extends Component {
               tabIndex="2"
             />
             <button type="submit" id="h_search-btn" className="src-btn" tabIndex="-1">
-              <i className="fas fa-search" />
+              <i className="fas fa-search src-btn-ico" />
             </button>
           </div>
         </form>
 
-        <div id="box" className="box src-box h_tooltip arrow-top-left">
-          <SearchAutocomplete results={search.results} />
-          <SearchSuggestion products={search.products} />
+        <div id="box" className={'box src-box h_tooltip arrow-top-left ' + (search.results.length > 0 && search.products.length > 0? 'active': '') }>
+          <SearchAutocomplete results={search.results} query={this.state.query} />
+          <SearchSuggestion products={search.products} query={this.state.query} />
         </div>
       </div>
     );

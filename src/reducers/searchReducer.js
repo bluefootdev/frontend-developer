@@ -1,7 +1,9 @@
 import * as types from '../actions/actionTypes';
 
 const results = {
-  results: [],
+  results: {
+    itemsReturned: []
+  },
   products: [],
 };
 

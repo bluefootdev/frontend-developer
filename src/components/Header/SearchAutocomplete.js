@@ -1,47 +1,82 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import '../../styles/navbar.css';
 
 export function SearchAutocomplete(props) {
+  const escapeRegExp = (str = '') => (
+    str.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1')
+  );
+
+  const Highlight = ({ search = '', children = '' }) => {
+    const patt = new RegExp(`(${escapeRegExp(search)})`, 'i');
+    const parts = String(children).split(patt);
+
+    if (search) {
+      return parts.map((part, index) => (
+        patt.test(part) ? <span className="ac-term" key={index}>{part}</span> : part
+      ));
+    } else {
+      return children;
+    }
+  };
+
+  const maxValues = {
+    suggestions: 3,
+    seeMore: 2,
+  };
+
+  const results = {
+    suggestions: [],
+    seeMore: [],
+  };
+
+  const initProps = () => {
+    props.results.map(result => {
+      if(result.items.length === 0 && results.seeMore.length < maxValues.seeMore) {
+        results.seeMore.push(result);
+      }
+
+      if(result.items.length !== 0 && results.suggestions.length < maxValues.suggestions) {
+        result.items.map(subItem => {
+          return results.suggestions.push(subItem);
+        })
+      }
+      return true;
+    });
+  };
+  initProps();
+
   return (
     <div className="src-autocomplete">
       <div className="h_tooltip-title">Você quis dizer:</div>
       <ul className="ac-lst sizer szr-7">
-        <li className="ac-lst-it sz sz-1">
-          <a className="ac-lnk src-lnk" href="#">
-            <span className="ac-term">gela</span>deira
-          </a>
-        </li>
-        <li className="ac-lst-it sz sz-2">
-          <a className="ac-lnk src-lnk" href="#">
-            <span className="ac-term">gela</span>deira frost free
-          </a>
-        </li>
-        <li className="ac-lst-it sz sz-3">
-          <a className="ac-lnk src-lnk" href="#">
-            <span className="ac-term">gela</span>deira brastemp
-          </a>
-        </li>
-        <li className="ac-lst-it sz sz-4">
-          <a className="ac-lnk src-lnk" href="#">
-            <span className="ac-term">gela</span>deira inox
-          </a>
-        </li>
-        <li className="ac-lst-it sz sz-5">
-          <a className="ac-lnk src-lnk" href="#">
-            <span className="ac-term">gela</span>deiras
-          </a>
-        </li>
-        <li className="ac-lst-it sz sz-6">
-          <a className="ac-lnk src-lnk" href="#">
-            <span className="ac-term">gela</span>deira inverse
-          </a>
-        </li>
-        <li className="ac-lst-it sz sz-7">
-          <a className="ac-lnk src-lnk" href="#">
-            <span className="ac-term">gela</span>deira brastemp inverse 422 litros extra larga com muita coisa la dentro que vc vai ficar lotado de frase grande pra gente ver o que acontece!
-          </a>
-        </li>
+        {
+          results.suggestions.map(item => {
+            return(
+              <li className="ac-lst-it sz sz-1" key={item.itemId}>
+                <Link to={'/nowhere'} className="ac-lnk src-lnk">
+                  <Highlight search={props.query}>{item.nameComplete}</Highlight>
+                </Link>
+              </li>
+            )
+          })
+        }
+      </ul>
+      <div className="h_tooltip-title">Veja mais…</div>
+      <ul className="ac-lst sizer szr-7">
+        {
+          results.seeMore.map((item, i) => {
+            // key by index isnt good, but we dont have the categoryId
+            return (
+              <li className="ac-lst-it sz sz-1" key={i}>
+                <Link to={'/nowhere'} className="ac-lnk src-lnk">
+                  <Highlight search={props.query}>{item.name}</Highlight>
+                </Link>
+              </li>
+            )
+          })
+        }
       </ul>
     </div>
   );
