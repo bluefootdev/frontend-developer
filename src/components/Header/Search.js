@@ -21,7 +21,8 @@ export class Search extends Component {
   };
 
   handleChange = (event) => {
-    if(event.target.value.length > 2) {
+    // like "TV"
+    if(event.target.value.length > 1) {
       this.props.sendQuery('teste');
       //event.target.value
     }
