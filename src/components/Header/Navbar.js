@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import '../../styles/navbar.css'
+import { Link } from 'react-router-dom';
+import '../../styles/navbar.css';
 import Loading from '../Shared/Loading';
 import Loadable from 'react-loadable';
 
@@ -12,7 +13,7 @@ export class Navbar extends Component {
         <div className={'container'}>
           <div className={'row d-flex align-items-center'}>
             <div className={'col-md-3 col-sm-12'}>
-              Awesome Logo
+              <Link className="logo" to="/">Awesome Logo</Link>
             </div>
             <div className={'col-md-8 col-sm-12'}>
               <Search />
