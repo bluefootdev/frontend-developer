@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadProductById, clearProduct } from '../../actions/productActions'
+import { loadProductById, clearProduct } from '../../actions/productActions';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import ReactHtmlParser from 'react-html-parser';
