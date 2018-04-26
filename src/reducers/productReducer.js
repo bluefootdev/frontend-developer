@@ -1,11 +1,19 @@
 import * as types from '../actions/actionTypes';
 
-const products = [];
+const initialState = {
+  featured:[],
+  list:[],
+  item:{},
+};
 
-export default function productReducer(state = products, action) {
+export default function productReducer(state = initialState, action) {
   switch(action.type) {
     case types.LOAD_FEATURED_PRODUCTS_SUCCESS:
-      return Object.assign([], state, action.products);
+      return Object.assign([], state, { featured: action.products });
+    case types.LOAD_PRODUCTBY_ID_SUCCESS:
+      return Object.assign([], state, { item: action.product[0] });
+    case types.CLEAR_PRODUCT:
+      return Object.assign([], state, { item: {} });
     default:
       return state;
   }

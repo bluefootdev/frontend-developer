@@ -6,15 +6,11 @@ import Loading from "../Shared/Loading";
 export const Featured = Loadable({ loader: () => import("./Featured"), loading: Loading, });
 
 class App extends Component {
-  constructor(props, context) {
-    super(props, context);
-  }
-
   render() {
     const products = this.props.products;
     return (
       <div>
-        <Featured products={products} />
+        <Featured products={products.featured} />
       </div>
     );
   }
