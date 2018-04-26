@@ -129,3 +129,15 @@ button:focus {
 .ready.active, .ready.active *, .ready.hover, .ready.hover * {
   z-index: 100;
 }
+
+.slick-slider {
+  .slick-arrow {
+    z-index: 2;
+    &.slick-prev {
+      left: 5px;
+    }
+    &.slick-next {
+      right: 5px;
+    }
+  }
+}
