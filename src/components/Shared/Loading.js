@@ -5,7 +5,7 @@ export default function Loading(props) {
     if (props.timedOut) {
       return <div>Loader timed out!</div>;
     } else if (props.pastDelay) {
-      return <div>Loading...</div>;
+      return <div>Carregando…</div>;
     } else {
       return null;
     }
@@ -14,4 +14,5 @@ export default function Loading(props) {
   } else {
     return null;
   }
+  return <div>Carregando…</div>
 }
