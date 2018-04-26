@@ -23,5 +23,9 @@ export function getBestPrice(product) {
     });
     return true;
   });
-  return (Math.max.apply(Math, lowerPrice)).toFixed(2);
+  let lower = (Math.min.apply(Math, lowerPrice));
+  if(isFinite(lower)) {
+    return lower.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+  }
+  return 'Indisponível';
 }

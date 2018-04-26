@@ -20,7 +20,7 @@ export function SearchSuggestion(props) {
                        alt={product.productName}
                        src={image} />
                   <span className="as-name">{product.productName}</span>
-                  <span className="as-price">R$ {price}</span>
+                  <span className="as-price">{price}</span>
                 </Link>
               </li>
             )
