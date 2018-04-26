@@ -16,6 +16,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={Routes.Home}/>
           <Route path='/product/:productId/:slug' component={Routes.ProductDetail}/>
+          <Route path='/products/busca/:query' component={Routes.ProductList}/>
         </Switch>
       </div>
     );
