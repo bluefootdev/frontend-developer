@@ -24,7 +24,7 @@ export class ProductList extends Component {
         <div className="container">
           <div className="row">
             <div className="col center">
-              Carregando…
+              Nenhum resultado encontrado :(
             </div>
           </div>
         </div>

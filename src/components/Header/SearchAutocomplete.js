@@ -53,10 +53,9 @@ export function SearchAutocomplete(props) {
       <ul className="ac-lst sizer szr-7">
         {
           results.suggestions.map(item => {
-            // Link foward to the filtered products list, not now :v
             return(
               <li className="ac-lst-it sz sz-1" key={item.itemId}>
-                <Link to={'/'} className="ac-lnk src-lnk">
+                <Link to={`/products/busca/${item.nameComplete}`} className="ac-lnk src-lnk">
                   <Highlight search={props.query}>{item.nameComplete}</Highlight>
                 </Link>
               </li>
@@ -69,10 +68,9 @@ export function SearchAutocomplete(props) {
         {
           results.seeMore.map((item, i) => {
             // key by index isnt good, but since we dont have the categoryId…
-            // Link foward to the filtered products list, not now :v
             return (
               <li className="ac-lst-it sz sz-1" key={i}>
-                <Link to={'/'} className="ac-lnk src-lnk">
+                <Link to={`/products/busca/${props.query}/category/${item.name}`} className="ac-lnk src-lnk">
                   <Highlight search={props.query}>{item.name}</Highlight>
                 </Link>
               </li>
