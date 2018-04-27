@@ -1,69 +1,85 @@
-# Bluefoot DEV: Teste prático para Frontend Developer
+# Como rodar o projeto
+
+ ## Clonar o projeto
+
+ ```
+$ git clone git@github.com:charliston/frontend-developer.git
+$ frontend-developer
+ ```
+
+## Instalar as dependências com:
+`$ yarn install`
+ou
+`$ npm install`
+
+## Rodar o projeto:
+`$ yarn start`
+ou
+`$ npm start`
+
+## Deploy no Heroku
+Fiz um [deploy no Heroku](https://warm-reef-20582.herokuapp.com/), mas como a API limita a ação de CORS não irá funcionar nem com o método abaixo. =/
 
 
-## Instruções
+# Abrir Google Chrome com as opções de segurança desabilitadas para evitar "erro" de CORS (apenas rodando aplicação local):
 
-Crie um `fork` deste projeto, e desenvolva em cima do seu fork. Use o *README.md* principal do seu repositório para nos contar como foi sua experiência em realizar o teste, esperamos que você nos conte: as decisões que você tomou, como você organizou seu código, as funcionalidades e instruções de como rodar seu projeto e até as dificuldades e desafios que você teve.
+## No OSX, abrir o Terminal e executar:
+`$ open -a Google\ Chrome --args --disable-web-security --user-data-dir`
 
+[--user-data-dir required on Chrome 49+ on OSX](https://stackoverflow.com/a/35509189/773263)
 
-## Briefing
+## Para Linux, executar:
+`$ google-chrome --disable-web-security`
 
-Você deve desenvolver uma aplicação e interface de busca de produtos para um grande ecommerce de uma multinacional no Brasil.
+Além disso, se você estiver tentando acessar arquivos locais para fins de desenvolvimento, como AJAX ou JSON, também poderá
+usar essa flag:
+`-–allow-file-access-from-files`
 
-A interface deve ser bastante semelhante a busca do [Submarino](https://www.submarino.com.br), um input text onde os resultados vão aparecendo conforme o usuário digita seu termo. Em parte do resultado, você deve exibir os resultados de uma das API's (autocomplete), e em outra parte você deve efetuar outro request por Full Text em outro endpoint trazendo os 3 primeiros produtos do response.
+## Para o Windows, vá para o Prompt de Comando, vá para a pasta em que o Chrome.exe está e digite:
+`chrome.exe --disable-web-security`
 
+Isso deve desativar a mesma política de origem e permitir que você acesse arquivos locais.
 
-`Endpoint da API de autocomplete:` 
-http://agenciabluefoot.vtexcommercestable.com.br/buscaautocomplete/?productNameContains={{termo}}
+# Considerações
 
+## Meu background
+Sou programador front-end a 4 anos mais ou menos, sendo minha última experiência de trabalho com AngularJS. Iniciei os
+estudos com React por conta e algumas vídeo aulas. Tive um problema pra iniciar projetos por conta pois as informações
+que tem sobre React ou estão desatualizadas ou não funcionam.
 
-`Endpoint da API de search full text:`
-http://agenciabluefoot.vtexcommercestable.com.br/api/catalog_system/pub/products/search/{{termo}}?map=ft
+## Estrutura do projeto
+Visei a melhor escalabilidade do projeto por modularizar ele. Não sei se a estrutura de pastas está nos "padrões React",
+mas é as que eu me sinti confortável com o resultado.
+Esse é meu primeiro projeto inteiramente feito sem seguir nenhuma vídeo-aula ou tutorial (*yey!*). Isso me deixou muito
+confiante das minhas capacidades com React
 
-Documentação completa da API de busca: [https://documenter.getpostman.com/view/845/search-103/Hs43]
+## Testes
+Como disse anteriormente, não achei nada relacionado a Jest com Redux e API que fosse de fácil aprendizado. Mas como
+quero sempre evoluir profissionalmente, após a entrega desse projeto, irei entrar mais profudamente nesse assunto, pois
+sei que os testes unitários são importantes.
 
+## Layout
+Visando a maior velocidade de produção, eu copiei a estrutura de layout de alguns exemplos que existem na Internet.
+Visto que não temos um Layout padrão pra seguir, meio que imitando essa prática com isso (*IMO*).
 
-Para cada um dos 3 produtos, devemos exibir dados como titulo, thumbnail, preço e outros dados que você considerar importante para a taxa de conversão (esperamos suas considerações no Readme.md lembra?)
+## Dificuldades
+Eu tive um pouco de dificuldade em entender a API num primeiro momento, principalmente por estar externo ao desenvolvimento
+da mesma. Então optei por caminhos que eu já tinha trabalhado antes com desenvolvimento de e-commerce.
 
-Quando clicarmos no produto, você pode optar por dois caminhos:
+## Tecnologias
+- Utilizei o grid do **Bootstrap 4.1**, por ser o mais atualizado, utilizar tecnologias novas de grid, maturidade do projeto e
+por eu gostar mais;
+- **Fontawesome** 5, por ter os ícones bem mais trabalhados e visualmente mais agradáveis;
+- **SCSS** por dar mais velocidade ao desenvolvimento de estilos;
+- **create-react-app** por dar um início de projeto mais fácil pra quem não tem tanta intimidade com React;
+- **Redux** para gerenciamento de estados;
+- **React Loadable** pois fazendo um outro teste, um dos requisitos era esse. Achei tão interessante essa idéia que logo quis
+utilizar também. Inclusive esse era uma das coisas que eu não gostava no AngularJS: ter que carregar toda a aplicação de
+uma vez. Com o React Loadable, consegui que a aplicação fosse fatiada e carregada sob demanda, ganhando muito tempo de
+carregamento;
+- **Slick Carousel** pra fazer uma página inicial um pouco menos feia. (Sei que a parte de destaques não ficou linda);
+- **[stackedit.io](stackedit.io)** pois fica mais fácil editar arquivos MD com ele :o)
 
-- Levar o usuário para o link do produto
-- Exibir os dados completos do produto em outra interface elaborada por você
-
-Com o submit do formulário, deve ser exibida uma lista com todos os produtos encontrados no response, exibindo dados como título, thumbnail, preço, link e outros dados importantes para a taxa de conversão da loja.
-
-
-### O que nós esperamos do seu teste
-
-* Ver na solução a utilização de um framework / biblioteca da sua escolha e que você nos conte sobre essa escolha. Aqui na Bluefoot nós utilizamos o React.
-* Queremos ver a utilização de dependency managers (npm, webpack etc)
-* Automação de tasks com gulp, grunt ou outra ferramenta de sua escolha
-* HTML5 escrito da maneira mais semântica possível
-* CSS3 com um pre processador de sua escolha, aqui na Bluefoot utilizamos SASS SCSS mas gostamos do PostCSS também.
-* Layout responsivo
-
-### O que nós ficaríamos felizes de ver em seu teste
-
-* Testes unitários
-* Alguma metodologia para definição e organização do seu código CSS
-
-### O que nos impressionaria
-
-* Testes de aceitação
-* [BEM naming convention](http://getbem.com/naming/)
-* Aplicação de animações em css quando possível
-* Ver o código rodando live
-
-### O que nós não gostaríamos
-
-* Descobrir que não foi você quem fez seu teste
-* Ver commits gigantes, sem mensagens ou com -m sem pé nem cabeça
-
-
-## O que avaliaremos de seu teste
-
-* Histórico de commits do git
-* As instruções de como rodar o projeto
-* Organização, semântica, estrutura, legibilidade, manutenibilidade, escalabilidade do seu código e suas tomadas de decisões
-* Alcance dos objetivos propostos
-* Componentização e extensibilidade dos componentes Javascript
+Espero que meu projeto esteja dentro do que a empresa busca. Eu gostei muito de fazer esse teste, como eu disse, foi o
+primeiro projeto que tive a confiança de fazer do zero sozinho (sem ajuda de tutoriais) usando o que aprendi nessa
+jornada solo de horas de vídeos, documentações, frustrações (quase desisti de React) e, finalmente, alegria.
