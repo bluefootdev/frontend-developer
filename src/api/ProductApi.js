@@ -9,8 +9,8 @@ class ProductApi {
     });
   }
 
-  static fullTextSearch(query) {
-    return fetch(`${this.API_URL}/catalog_system/pub/products/search/${query}?map=ft&_from=0&_to=2`).then(response => {
+  static fullTextSearch(query, ini = 0, limit = 2) {
+    return fetch(`${this.API_URL}/catalog_system/pub/products/search/${query}?map=ft&_from=${ini}&_to=${limit}`).then(response => {
       return response.json();
     }).catch(error => {
       return error;

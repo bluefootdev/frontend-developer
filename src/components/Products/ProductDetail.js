@@ -68,7 +68,7 @@ export class ProductDetail extends Component {
             <h1>
               {product.brand} {product.productName}
             </h1>
-            <small>em {product.categories[0].replace(/\//g, '')}</small>
+            <small>em {product.categories[0].replace(/\//g, ' ')}</small>
             <h2>Vendido por <Link to={'/'}>{seller.sellerName}</Link></h2>
 
             {seller.commertialOffer.Price !== 0 &&

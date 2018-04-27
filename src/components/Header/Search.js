@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import * as searchActions from '../../actions/searchActions';
 import Loading from '../Shared/Loading';
@@ -9,12 +10,17 @@ export const SearchAutocomplete = Loadable({ loader: () => import("./SearchAutoc
 export const SearchSuggestion = Loadable({ loader: () => import("./SearchSuggestion"), loading: Loading, });
 
 export class Search extends Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       query: '',
     }
   }
+
+  static contextTypes = {
+    router: PropTypes.object
+  };
+
   setBodyActive = () => {
     const search = this.props.search;
     document.getElementById('header-overlay').classList.add('active');
@@ -39,8 +45,8 @@ export class Search extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    // foward to the filtered products list
-    // but, not now :v
+    document.getElementById('search-input').blur();
+    this.context.router.history.push(`/products/busca/${this.state.query}`);
   };
 
   render() {
@@ -51,7 +57,7 @@ export class Search extends Component {
           <div className="src-input-wpr">
             <label id="h_search-label" htmlFor="h_search-input" className="src-label">Busca</label>
             <input
-              id="h_search-input"
+              id="search-input"
               className="src-input"
               type="text"
               name="conteudo"
@@ -77,14 +83,14 @@ export class Search extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+function mapStateToProps (state) {
   return {
     search: {
       results: state.search.results.itemsReturned,
       products: state.search.products
     },
   }
-};
+}
 
 const mapDispatchToProps = dispatch => ({
   sendQuery: query => {
@@ -93,5 +99,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-// export default Search;
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
