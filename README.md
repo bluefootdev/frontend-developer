@@ -22,6 +22,8 @@ Adicionado um Node Proxy para rotear as requisições feitas para API da loja qu
 
 # Considerações
 
+**Projeto feito em 2018, atualizado em 2021**
+
 ## Meu background
 Sou programador front-end a 4 anos mais ou menos, sendo minha última experiência de trabalho com AngularJS. Iniciei os
 estudos com React por conta e algumas vídeo aulas. Tive um problema pra iniciar projetos por conta pois as informações
