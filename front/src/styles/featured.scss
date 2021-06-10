@@ -1,0 +1,30 @@
+.slick-slider {
+  .slick-list {
+    .item {
+      background: #EEE no-repeat center;
+      background-size: auto;
+      display: flex;
+      flex-direction: column;
+      height: 400px;
+      justify-content: flex-end;
+      position: relative;
+      text-decoration: none;
+      width: 100%;
+
+      .info {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 5px;
+
+        p {
+          color: #FFF;
+          font-weight: 400;
+          margin: 0;
+        }
+
+        span {
+          color: #000030;
+        }
+      }
+    }
+  }
+}

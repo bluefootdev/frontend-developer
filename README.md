@@ -17,28 +17,8 @@ ou
 ou
 `$ npm start`
 
-## Deploy no Heroku
-Fiz um [deploy no Heroku](https://warm-reef-20582.herokuapp.com/), mas como a API limita a ação de CORS não irá funcionar nem com o método abaixo. =/
-
-
-# Abrir Google Chrome com as opções de segurança desabilitadas para evitar "erro" de CORS (apenas rodando aplicação local):
-
-## No OSX, abrir o Terminal e executar:
-`$ open -a Google\ Chrome --args --disable-web-security --user-data-dir`
-
-[--user-data-dir required on Chrome 49+ on OSX](https://stackoverflow.com/a/35509189/773263)
-
-## Para Linux, executar:
-`$ google-chrome --disable-web-security`
-
-Além disso, se você estiver tentando acessar arquivos locais para fins de desenvolvimento, como AJAX ou JSON, também poderá
-usar essa flag:
-`-–allow-file-access-from-files`
-
-## Para o Windows, vá para o Prompt de Comando, vá para a pasta em que o Chrome.exe está e digite:
-`chrome.exe --disable-web-security`
-
-Isso deve desativar a mesma política de origem e permitir que você acesse arquivos locais.
+## Node Proxy
+Adicionado um Node Proxy para rotear as requisições feitas para API da loja que não permite acesso direto devido a política de CORS. Ao rodar o projeto, a aplicação Node também é executada.
 
 # Considerações
 

@@ -1,30 +1,20 @@
 {
-  "name": "bluefoot-teste",
-  "version": "0.0.2",
-  "private": true,
+  "name": "frontend-developer-proxy",
+  "version": "0.0.1",
+  "main": "app.js",
+  "license": "MIT",
   "dependencies": {
-    "node-sass-chokidar": "^1.2.2",
-    "npm-run-all": "^4.1.2",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
-    "react-html-parser": "^2.0.2",
-    "react-loadable": "^5.3.1",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
-    "react-slick": "^0.23.1",
-    "redux": "^4.0.0",
-    "redux-thunk": "^2.2.0",
-    "slick-carousel": "^1.8.1"
+    "concurrently": "^6.2.0",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "http-proxy-middleware": "^1.0.5",
+    "https": "^1.0.0",
+    "morgan": "^1.10.0"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --output-style compressed",
-    "watch-css": "npm run build-css -- --watch --recursive",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
-    "build-js": "react-scripts build",
-    "build": "npm-run-all build-css build-js"
+    "dev": "node app.js",
+    "start": "concurrently --kill-others \"npm run dev\" \"cd front && npm start\"",
+    "build": "cd front && yarn && yarn run build",
+    "preinstall": "cd front && yarn && cd .."
   }
 }
